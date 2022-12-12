@@ -1,15 +1,20 @@
 const formSubmit = document.getElementById("submitButton");
 const form = document.querySelector("form");
 const elements = form.elements;
-const today = new Date();
+var now = new Date();
+
+
+const today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+document.getElementById("date").setAttribute("min", today);
+
 
 function submitValidation() {
     for (let element of elements) {
         const helpText = document.getElementById(`${element.id}Help`)
         const tooltip = new bootstrap.Tooltip(element)
         if (element.validity.valid) {
-            element.classList.remove("is-invalid")
-            element.classList.add("is-valid")
+            element.classList.remove("is-invalid");
+            element.classList.add("is-valid");
             tooltip.disable();
         } else {
             element.classList.remove("is-valid")
@@ -20,7 +25,6 @@ function submitValidation() {
         }
     }
 };
-
 
 function onChangeValidation() {
     for (let element of elements) {
@@ -39,7 +43,6 @@ function onChangeValidation() {
                 helpText.classList.add("text-danger")
                 tooltip.enable();
                 onmouseover = (event) => { tooltip.show(); };
-                console.log("went at the onmouseover")
             }
         })
     }
@@ -54,9 +57,11 @@ function focusInput() {
     }
 }
 
-formSubmit.addEventListener('click', submitValidation);
-formSubmit.addEventListener('click', onChangeValidation);
-formSubmit.addEventListener('click', focusInput);
+formSubmit.addEventListener('click', event => {
+    submitValidation();
+    onChangeValidation();
+    focusInput();
+});
 
 const toastTrigger = document.getElementById("submitButton");
 const toastEnd = document.getElementById("successToast");

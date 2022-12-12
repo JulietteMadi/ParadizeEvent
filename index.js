@@ -2,6 +2,7 @@ const formSubmit = document.getElementById("submitButton");
 const form = document.querySelector("form");
 const elements = form.elements;
 var now = new Date();
+const toastEnd = document.getElementById("successToast");
 
 
 const today = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
@@ -57,18 +58,18 @@ function focusInput() {
     }
 }
 
+function toastOfSuccess() {
+    const toast = new bootstrap.Toast(toastEnd)
+    toast.show();
+}
+
 formSubmit.addEventListener('click', event => {
     submitValidation();
     onChangeValidation();
     focusInput();
+    //toastOfSuccess();
 });
 
-const toastTrigger = document.getElementById("submitButton");
-const toastEnd = document.getElementById("successToast");
-if (toastTrigger) {
-    formSubmit.addEventListener('click', () => {
-        const toast = new bootstrap.Toast(toastEnd)
-        toast.show();
-    })
-}
+form.addEventListener('submit', toastOfSuccess)
+
 

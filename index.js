@@ -61,11 +61,11 @@ for (let element of elements) {
             };
         }
 
-
         element.addEventListener("invalid", (event) => {
             event.preventDefault();
             elementInvalid();
             tooltipMessage();
+            invalidFocus();
         });
 
         element.addEventListener('change', (event) => {

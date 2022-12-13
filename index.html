@@ -28,9 +28,9 @@
                 <div class="row mt-3">
                     <div class="col-md-4 form-group">
                         <label for="name" class="form-label">Nom</label>
-                        <input type="text" name="name" class="form-control" id="name" data-bs-toggle="tooltip"
-                            data-bs-custom-class="bg-tooltip" title="Renseignez entre 1 et 255 caractères"
-                            pattern="[a-zA-Zùéè]{1,10}" required>
+                        <input type="text" name="name" class="form-control" id="name"
+                            data-bs-title="Veuillez renseigner ce champs" data-bs-toggle="tooltip"
+                            data-bs-custom-class="bg-tooltip" min="255" required>
                         <div class="form-text" id="nameHelp">
                             Nom de l'événement
                         </div>
@@ -38,8 +38,7 @@
                     <div class="col-md-4 form-group">
                         <label for="date" class="form-label">Date</label>
                         <input type="date" name="date" class="form-control" id="date" data-bs-toggle="tooltip"
-                            data-bs-custom-class="bg-tooltip" title="Renseignez une date ultérieur à aujourd'hui"
-                            required>
+                            data-bs-custom-class="bg-tooltip" data-bs-title="Veuillez renseigner ce champs" required>
                         <div class=" form-text" id="dateHelp">
                             Date de l'événement
                         </div>
@@ -47,8 +46,7 @@
                     <div class="col-md-4 form-group">
                         <label for="location" class="form-label is-invalid">Lieu</label>
                         <select name="location" class="form-select" id="location" data-bs-toggle="tooltip"
-                            data-bs-custom-class="bg-tooltip"
-                            title="Indiquez dans quelle ville aura lieu votre événement" required>
+                            data-bs-custom-class="bg-tooltip" data-bs-title="Veuillez renseigner ce champs" required>
                             <option disabled selected value="">Choisir un lieu dans la liste</option>
                             <option value="paris">Paris</option>
                             <option value="rennes">Rennes</option>
@@ -63,7 +61,7 @@
                     <div class="col-md-8 form-group">
                         <label for="thematic" class="form-label">Thème</label>
                         <select name="thematic" class="form-select" id="thematic" data-bs-toggle="tooltip"
-                            data-bs-custom-class="bg-tooltip" title="Sélectionnez le thème de votre événement" Required>
+                            data-bs-custom-class="bg-tooltip" data-bs-title="Veuillez renseigner ce champs" Required>
                             <option disabled selected value="">Choisir un thème dans la liste</option>
                             <option value="ecology">Écologie</option>
                             <option value="hr">Ressources Humaines</option>
@@ -80,7 +78,7 @@
                                 <span class="input-group-text">€</span>
                             </div>
                             <input type="number" class="form-control" id="price" min="1" data-bs-toggle="tooltip"
-                                data-bs-custom-class="bg-tooltip" title="Indiquez une valeur positive" required>
+                                data-bs-custom-class="bg-tooltip" data-bs-title="Veuillez renseigner le champ" required>
                         </div>
                         <div class="form-text" id="priceHelp">
                             Prix de l'événement
@@ -91,7 +89,7 @@
                     <label for="description" class="form-label mt-3">Description</label>
                     <textarea class="form-control" id="description" rows="5" minlength="1" maxlength="1000"
                         data-bs-toggle="tooltip" data-bs-custom-class="bg-tooltip"
-                        title="Décrivez votre événement en quelques mots" required></textarea>
+                        data-bs-title="Veuillez renseigner le champ" required></textarea>
                     <div class="form-text" id="descriptionHelp">
                         Description de l'événement
                     </div>
@@ -101,13 +99,13 @@
                         class="btn btn-primary float-right col-12 col-md-auto my-3">Sauvegarder</button>
                 </div>
             </form>
-            <div id="successToast" class="toast" role="alert" style="position: absolute; top: 0; right: 0;">
-                <div class="toast-header">
-                    <strong class="me-auto">Merci de votre confiance !</strong>
+            <div id="successToast" class="toast" role="alert" style="position: absolute; bottom: 0; right: 0;">
+                <div class="toast-header text-white bg-success">
+                    <div class="me-auto"></div>
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
-                <div class="toast-body text-start">
-                    Votre événement a bien été enregistré.
+                <div class="toast-body text-success">
+                    Événement créé avec succès
                 </div>
             </div>
         </div>

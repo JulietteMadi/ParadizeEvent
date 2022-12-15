@@ -26,7 +26,7 @@ function tooltipMessage(element, tooltip) {
         tooltip.setContent({ '.tooltip-inner': 'Doit être égale ou supérieure à aujourd\'hui' });
     } else if (element.validity.rangeUnderflow && element.id == "price") {
         tooltip.setContent({ '.tooltip-inner': 'Doit être positif' });
-    };
+    }
 }
 
 
@@ -65,6 +65,7 @@ for (let element of elements) {
             event.preventDefault();
             elementInvalidStyle(element, helpText);
             focusOnInvalid();
+            tooltip.enable();
         });
 
         element.addEventListener('change', (event) => {
@@ -79,7 +80,6 @@ for (let element of elements) {
                 tooltip.enable();
                 tooltipMessage(element, tooltip);
             }
-
         });
     };
 };
